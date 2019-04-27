@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>zone.arctic.ytpplus</groupId>
+		<artifactId>ytpplus-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+    <artifactId>ytpplus-client</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>YTPPlus-Client</name>
+    <description>A GUI/Client for YTPPlus, a YouTube Poop generator</description>
+
+	<build>
+		<plugins>
+			<!--
+			<plugin>
+				<groupId>com.zenjava</groupId>
+				<artifactId>javafx-maven-plugin</artifactId>
+				<version>8.8.3</version>
+				<configuration>
+					<mainClass>zone.arctic.ytpplus.client.MainApp</mainClass>
+				</configuration>
+			</plugin>
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>zone.arctic.ytpplus.client.MainApp</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+    <dependencies>
+		<dependency>
+			<groupId>zone.arctic.ytpplus</groupId>
+			<artifactId>ytpplus-library</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+    </dependencies>
+</project>
